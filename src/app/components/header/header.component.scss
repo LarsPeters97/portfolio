@@ -1,0 +1,220 @@
+@use "./src/assets/css/variables.scss";
+
+header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    height: variables.$header-height;
+    width: 100%;
+    align-items: center;
+    z-index: 9;
+    background-color: variables.$default-background-color;
+    padding-left: variables.$side-distance;
+    padding-right: variables.$side-distance;
+
+    .name-abbreviation-area {
+      position: relative;
+      width: 66.67px;
+      height: 30px;
+      cursor: pointer;
+
+      .left-square {
+        position: absolute;
+        left: 0;
+        top: 3px;
+      }
+
+      .right-square {
+        position: absolute;
+        right: 0;
+        top: 3px;
+      }
+      .letter-l {
+        position: absolute;
+        left: 16px;
+      }
+
+      .letter-p {
+        position: absolute;
+        right: 14px;
+      }
+
+      span {
+        font-family: variables.$headline-font;
+        font-weight: 800;
+        font-size: 36px;
+      }
+    }
+
+    button {
+      height: 38px;
+      width: 44px;
+      cursor: pointer;
+      background-image: url("/assets/img/burger-menu.png");
+      background-size: contain;
+      background-color: transparent;
+      border: none;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  nav {
+    position: fixed;
+    height: calc(100vh - variables.$header-height);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    background-color: variables.$default-background-color;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Syne";
+        font-size: 96px;
+        font-weight: 700;
+        line-height: 96px;
+        letter-spacing: -0.025em;
+        text-align: center;
+        text-decoration: none;
+        color: variables.$main-font-color;
+        width: 580px;
+        height: 140px;
+        border: 5px solid transparent;
+        position: relative;
+
+        &:active {
+          border-color: black;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: -5px;
+          height: 52px;
+          width: 39px;
+          border-bottom: 5px solid black;
+          border-left: 5px solid black;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          right: -5px;
+          width: calc(580px / 2);
+          border-bottom: 5px solid transparent;
+          transition: 0.3s;
+        }
+
+        &:hover::before {
+          animation: underline-animation 0.3s forwards;
+        }
+
+        &:hover::after {
+          border-color: black;
+        }
+      }
+    }
+
+    .rectange-menu-footer {
+      background-image: url("/assets/img/rectangle-menu-footer.png");
+      width: 100%;
+      background-size: cover;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      color: variables.$default-background-color;
+
+      .greeting-contact {
+        display: flex;
+        flex-direction: column;
+        margin-left: variables.$side-distance;
+
+        .greeting {
+          font-family: "Syne";
+          font-size: 78px;
+          font-weight: 800;
+          line-height: 78px;
+          letter-spacing: 0.01em;
+          text-align: center;
+          margin-bottom: 10px;
+          text-decoration: none;
+          color: variables.$default-background-color;
+
+          &:hover {
+            color: variables.$cyan-font-color;
+          }
+        }
+        .e-mail {
+          font-weight: 300;
+          line-height: 23px;
+          letter-spacing: -0.025em;
+          text-align: left;
+          margin-bottom: 42px;
+        }
+      }
+
+      .contact-icons {
+        margin-right: variables.$side-distance;
+        display: flex;
+        margin-bottom: 42px;
+        width: 204px;
+        justify-content: space-between;
+
+        a {
+          height: 40px;
+          display: flex;
+          align-items: flex-start;
+          transition: transform 300ms ease;
+          transform: translateY(10px);
+          &:hover {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes underline-animation {
+    0% {
+      width: calc(580px / 2);
+      height: 0;
+      border-color: black;
+    }
+    25% {
+      width: calc(580px - 5px);
+      height: 0;
+      border-color: black;
+    }
+    80% {
+      width: calc(580px - 5px);
+      height: 0;
+      border-color: black;
+    }
+    100% {
+      width: 0px;
+      height: 0;
+      border-color: transparent;
+    }
+  }
+}

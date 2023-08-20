@@ -1,0 +1,54 @@
+@use "./src/assets/css/variables.scss";
+
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: variables.$side-distance;
+  margin-left: variables.$side-distance;
+  margin-bottom: -120px;
+
+  .projects-header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+
+    h2 {
+      margin-top: 24px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    span {
+      font-weight: 400;
+      line-height: 28px;
+      letter-spacing: 0em;
+      max-width: 600px;
+      text-align: center;
+    }
+  }
+
+  img {
+    width: 600px;
+    object-fit: contain;
+    margin-bottom: 32px;
+  }
+
+  app-single-project {
+    display: flex;
+    width: 100%;
+  }
+
+  .arrow-left {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: -32px;
+
+    img {
+      height: 224px;
+      object-fit: contain;
+    }
+  }
+}

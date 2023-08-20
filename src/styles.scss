@@ -1,1 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./assets/css/fonts.scss";
+@use "./assets/css/variables.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: variables.$default-background-color;
+  font-family: "Overpass";
+  font-size: variables.$standard-font-size;
+}
+
+h2 {
+  font-family: "Syne";
+  font-size: 78px;
+  font-weight: 800;
+  line-height: 78px;
+  letter-spacing: 0.01em;
+
+  &:hover {
+    color: variables.$cyan-font-color;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible !important;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: variables.$cyan-font-color;
+  border-radius: 8px;
+  height: 40px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 100px black;
+  border-radius: 0px;
+  background-color: gray;
+}
