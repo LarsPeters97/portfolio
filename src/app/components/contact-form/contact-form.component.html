@@ -1,4 +1,4 @@
-<div class="contact-form">
+<div class="contact-form" id="contact-form">
   <h2>Say Hi!</h2>
 
   <div class="contact-form-area">
@@ -19,14 +19,14 @@
         <div class="error-container">
           <span
             *ngIf="contactForm.get('name')?.errors?.['required'] &&
-              (contactForm.get('name')?.dirty ||
+              (isSubmitted || contactForm.get('name')?.dirty ||
             contactForm.get('name')?.touched)"
             class="error"
             >Please enter your name.</span
           >
           <span
             *ngIf="contactForm.get('name')?.errors?.['tooShort'] &&
-            contactForm.get('name')?.touched"
+            (isSubmitted || contactForm.get('name')?.touched)"
             class="error"
             >Your name must be at least 3 characters long.</span
           >
@@ -46,7 +46,7 @@
           [ngClass]="{
             visible:
               contactForm.get('name')?.errors &&
-              contactForm.get('name')?.touched
+              (isSubmitted || contactForm.get('name')?.touched)
           }"
           class="hidden"
           src="/assets/img/red-warning.png"
@@ -70,14 +70,14 @@
         <div class="error-container">
           <span
             *ngIf="contactForm.get('email')?.errors?.['required'] &&
-              (contactForm.get('email')?.dirty ||
+              (isSubmitted || contactForm.get('email')?.dirty ||
             contactForm.get('email')?.touched)"
             class="error"
             >Please enter your email address.</span
           >
           <span
             *ngIf="contactForm.get('email')?.errors?.['email'] &&
-            contactForm.get('email')?.touched"
+            (isSubmitted || contactForm.get('email')?.touched)"
             class="error"
             >Please enter a valid email address.</span
           >
@@ -97,7 +97,7 @@
           [ngClass]="{
             visible:
               contactForm.get('email')?.errors &&
-              contactForm.get('email')?.touched
+              (isSubmitted || contactForm.get('email')?.touched)
           }"
           class="hidden"
           src="/assets/img/red-warning.png"
@@ -125,14 +125,14 @@
         <div class="error-container">
           <span
             *ngIf="contactForm.get('message')?.errors?.['required'] &&
-              (contactForm.get('message')?.dirty ||
+              (isSubmitted || contactForm.get('message')?.dirty ||
             contactForm.get('message')?.touched)"
             class="error"
             >Please enter your message.</span
           >
           <span
             *ngIf="contactForm.get('message')?.errors?.['tooShort'] &&
-            contactForm.get('message')?.touched"
+            (isSubmitted || contactForm.get('message')?.touched)"
             class="error"
             >Your message must be at least 20 characters long.</span
           >
@@ -152,14 +152,14 @@
           [ngClass]="{
             visible:
               contactForm.get('message')?.errors &&
-              contactForm.get('message')?.touched
+              (isSubmitted || contactForm.get('message')?.touched)
           }"
           class="hidden"
           src="/assets/img/red-warning.png"
           alt=""
         />
       </div>
-      <button>Send message</button>
+      <button type="submit">Send message</button>
     </form>
   </div>
 </div>

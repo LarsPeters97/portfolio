@@ -83,6 +83,12 @@ textarea {
   width: 88%;
   overflow: auto;
   padding-right: 16px;
+  cursor: auto;
+}
+
+textarea::-webkit-scrollbar {
+  cursor: default;
+  cursor: -moz-default;
 }
 
 textarea::-webkit-scrollbar-track {

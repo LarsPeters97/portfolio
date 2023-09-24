@@ -1,4 +1,4 @@
-<div class="home">
+<div class="home" id="start">
   <div>
     <h1>Frontend<br />Developer</h1>
     <div class="flex-center">
@@ -10,10 +10,14 @@
   <div class="scroll-email">
     <span class="vertical-text">lars.peters97@freenet.de</span>
     <div class="scroll-down">
-      <a class="arrow-bottom" href=""
+      <a
+        routerLink=""
+        fragment="about-me"
+        class="arrow-bottom"
+        (click)="scrollToAboutMe()"
         ><img src="./assets/img/arrow-bottom.png" alt=""
       /></a>
-      <a href=""
+      <a routerLink="" fragment="about-me" (click)="scrollToAboutMe()"
         ><span>Scroll<br />down</span></a
       >
     </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   trigger,
   state,
@@ -7,6 +7,7 @@ import {
   animate,
   keyframes,
 } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
 
 const burgerButtonAmimation = trigger('burgerButtonAmimation', [
   state(
@@ -93,6 +94,26 @@ const navAnimation = trigger('navAnimation', [
 })
 export class HeaderComponent {
   isMenuOpen = false;
+
+  constructor(private activeRoute: ActivatedRoute) {}
+  // ngOnInit(): void {
+  //   this.activeRoute.fragment.subscribe((value) => {
+  //     this.scrollTo(value);
+  //   });
+  // }
+
+  clickedMenuItem(delay: number) {
+    setTimeout(() => {
+      this.activeRoute.fragment.subscribe((value) => {
+        this.scrollTo(value);
+        this.isMenuOpen = false;
+      });
+    }, delay);
+  }
+
+  scrollTo(section: any) {
+    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+  }
 
   toggleAnimation() {
     this.isMenuOpen = !this.isMenuOpen;

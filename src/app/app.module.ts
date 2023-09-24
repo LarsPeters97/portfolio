@@ -14,6 +14,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { SingleProjectComponent } from './components/single-project/single-project.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
     SingleProjectComponent,
     ContactFormComponent,
     FooterComponent,
+    LegalNoticeComponent,
   ],
   imports: [
     BrowserModule,

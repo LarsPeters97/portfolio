@@ -1,6 +1,11 @@
 <header>
   <div class="header-top">
-    <div class="name-abbreviation-area">
+    <div
+      class="name-abbreviation-area"
+      routerLink=""
+      fragment="start"
+      (click)="clickedMenuItem(0)"
+    >
       <img class="left-square" src="./assets/img/left-square-bracket.png" />
       <span class="letter-l">L</span>
       <span class="letter-p">P</span>
@@ -14,9 +19,15 @@
 
   <nav [@navAnimation]="isMenuOpen ? 'open' : 'close'">
     <div class="nav-links">
-      <a href="">About me</a>
-      <a href="">My skills</a>
-      <a href="">Portfolio</a>
+      <a routerLink="" fragment="about-me" (click)="clickedMenuItem(125)"
+        >About me</a
+      >
+      <a routerLink="" fragment="skills" (click)="clickedMenuItem(125)"
+        >My skills</a
+      >
+      <a routerLink="" fragment="portfolio" (click)="clickedMenuItem(125)"
+        >Portfolio</a
+      >
     </div>
     <div class="rectange-menu-footer">
       <div class="greeting-contact">

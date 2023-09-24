@@ -16,6 +16,7 @@ footer {
   width: 66.67px;
   height: 30px;
   cursor: pointer;
+  margin-top: 16px;
 
   .left-square {
     position: absolute;
@@ -28,6 +29,7 @@ footer {
     right: 0;
     top: 3px;
   }
+
   .letter-l {
     position: absolute;
     left: 16px;
@@ -39,8 +41,56 @@ footer {
   }
 
   span {
-    font-family: variables.$headline-font;
     font-weight: 800;
     font-size: 36px;
+    font-family: variables.$headline-font;
+  }
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  span {
+    margin-top: 20px;
+  }
+}
+
+.contact-icons {
+  display: flex;
+  margin-bottom: 42px;
+  width: 204px;
+  justify-content: space-between;
+
+  a {
+    height: 40px;
+    display: flex;
+    align-items: flex-start;
+    transition: transform 300ms ease;
+    transform: translateY(10px);
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.to-top-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 160px;
+  cursor: pointer;
+  transition: 250ms ease-out;
+  width: auto;
+  width: 40px;
+  height: 60px;
+  object-fit: cover;
+  object-position: top;
+
+  &:hover {
+    width: 40px;
+    height: 80px;
+    object-fit: cover;
+    object-position: top;
   }
 }

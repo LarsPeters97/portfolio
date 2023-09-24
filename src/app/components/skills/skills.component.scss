@@ -6,6 +6,7 @@
   margin-right: variables.$side-distance;
   flex-direction: column;
   align-items: center;
+  padding-top: 50px;
 
   .skills-container {
     position: relative;
@@ -93,6 +94,7 @@
 
     a {
       margin-top: 16px;
+      height: 224px;
     }
 
     img {

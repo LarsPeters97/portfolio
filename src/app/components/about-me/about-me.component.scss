@@ -7,11 +7,14 @@
   margin-left: variables.$side-distance;
   margin-right: variables.$side-distance;
 
-
   .about-me {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    h2 {
+      margin-top: 40px;
+    }
 
     .text-and-btn {
       display: flex;
@@ -57,7 +60,7 @@
       align-items: center;
 
       a {
-        height: 300px;
+        height: 224px;
         display: flex;
         margin-top: 16px;
       }
