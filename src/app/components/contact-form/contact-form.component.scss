@@ -35,7 +35,6 @@ form {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
-  align-items: center;
 }
 
 .input-container {
@@ -46,6 +45,52 @@ form {
   flex-direction: column;
   margin-bottom: 24px;
 
+  textarea {
+    max-width: 529px;
+    background-color: black;
+    border: none;
+    outline: none;
+    color: variables.$default-background-color;
+    resize: none;
+    width: 88%;
+    overflow: auto;
+    padding-right: 16px;
+    cursor: auto;
+  }
+
+  textarea::-webkit-scrollbar {
+    cursor: default;
+    cursor: -moz-default;
+  }
+
+  textarea::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 100px black;
+    border-radius: 0px;
+    background-color: gray;
+  }
+
+  input,
+  .textarea-container {
+    background-color: black;
+    font-size: 16px;
+    font-weight: 400;
+    border: 3px solid transparent;
+    border-bottom: 3px solid variables.$default-background-color;
+    color: variables.$default-background-color;
+    border-radius: 0;
+    max-width: 600px;
+    min-width: 600px;
+
+    &:focus {
+      outline: none;
+      border: 3px solid variables.$default-background-color;
+    }
+  }
+
+  input:required:valid {
+    border: 3px solid variables.$default-background-color;
+  }
+
   img {
     position: absolute;
     top: 12px;
@@ -53,70 +98,24 @@ form {
     width: 26px;
     object-fit: contain;
   }
-}
 
-input {
-  padding: 15px 65px 15px 25px;
-}
+  .textarea-container {
+    min-height: 160px;
+    resize: both;
+    overflow: auto;
+    max-height: 300px;
+    display: flex;
+    padding: 16px;
+    width: 560px;
+  }
 
-.textarea-container {
-  min-height: 160px;
-  resize: both;
-  overflow: auto;
-  max-height: 300px;
-  display: flex;
-  padding: 16px;
-  width: 560px;
-}
-
-.textarea-container:focus-within {
-  border: 3px solid variables.$default-background-color;
-}
-
-textarea {
-  max-width: 529px;
-  background-color: black;
-  border: none;
-  outline: none;
-  color: variables.$default-background-color;
-  resize: none;
-  width: 88%;
-  overflow: auto;
-  padding-right: 16px;
-  cursor: auto;
-}
-
-textarea::-webkit-scrollbar {
-  cursor: default;
-  cursor: -moz-default;
-}
-
-textarea::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 100px black;
-  border-radius: 0px;
-  background-color: gray;
-}
-
-input,
-.textarea-container {
-  background-color: black;
-  font-size: 16px;
-  font-weight: 400;
-  border: 3px solid transparent;
-  border-bottom: 3px solid variables.$default-background-color;
-  color: variables.$default-background-color;
-  border-radius: 0;
-  max-width: 600px;
-  min-width: 370px;
-
-  &:focus {
-    outline: none;
+  .textarea-container:focus-within {
     border: 3px solid variables.$default-background-color;
   }
 }
 
-input:required:valid {
-  border: 3px solid variables.$default-background-color;
+input {
+  padding: 15px 65px 15px 25px;
 }
 
 label {
@@ -143,19 +142,89 @@ textarea:not(:focus):valid + label {
   color: #e61c40;
   font-size: 16px;
   font-weight: 400;
-  line-height: 19px;
   width: 100%;
+  transition: 500ms ease-in;
 }
 
 .error-container {
   display: flex;
-  height: 48px;
   align-items: center;
+  height: 0px;
+  animation: einblenden 1s forwards;
+}
+
+@keyframes einblenden {
+  from {
+    height: 0px;
+    opacity: 0;
+  }
+  to {
+    height: 50px;
+    opacity: 1;
+  }
+}
+
+.no-error {
+  animation: ausblenden 1s backwards;
+}
+
+@keyframes ausblenden {
+  from {
+    height: 50x;
+    opacity: 1;
+  }
+  to {
+    height: 0px;
+    opacity: 0;
+  }
+}
+
+.policy-agreement:hover .empty-checkbox {
+  background-color: rgb(0, 188, 143);
+}
+
+.privacy-policy {
+  font-size: 15px;
+  font-weight: 400;
+  text-align: left;
+  display: flex;
+  height: 20px;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    color: variables.$cyan-font-color;
+    width: 104px;
+    display: flex;
+    justify-content: center;
+    transition: 125ms ease-in-out;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}
+
+.checkbox-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.checkbox {
+  padding: 0px 8px 0px 0px;
+}
+
+.submit-btn-section {
+  display: flex;
+  justify-content: center;
 }
 
 button {
   cursor: pointer;
-  padding: 16px 56px;
+  padding: 16px 0px;
+  width: 270px;
   background-color: black;
   color: variables.$default-background-color;
   border: 4px solid variables.$default-background-color;
@@ -165,7 +234,6 @@ button {
 
   &:hover {
     font-weight: 600;
-    padding: 16px 72px;
   }
 
   &:active {

@@ -16,7 +16,18 @@
           formControlName="name"
         />
         <label>Your name</label>
-        <div class="error-container">
+        <div
+          [ngClass]="{
+            'error-container':
+              (contactForm.get('name')?.invalid &&
+                contactForm.get('name')?.dirty) ||
+              contactForm.get('name')?.touched,
+            'no-error':
+              (contactForm.get('name')?.valid &&
+                contactForm.get('name')?.dirty) ||
+              contactForm.get('name')?.touched
+          }"
+        >
           <span
             *ngIf="contactForm.get('name')?.errors?.['required'] &&
               (isSubmitted || contactForm.get('name')?.dirty ||
@@ -67,7 +78,13 @@
           "
         />
         <label>Your email</label>
-        <div class="error-container">
+        <div
+          [class.error-container]="
+            (contactForm.get('email')?.invalid &&
+              contactForm.get('email')?.dirty) ||
+            contactForm.get('email')?.touched
+          "
+        >
           <span
             *ngIf="contactForm.get('email')?.errors?.['required'] &&
               (isSubmitted || contactForm.get('email')?.dirty ||
@@ -159,7 +176,27 @@
           alt=""
         />
       </div>
-      <button type="submit">Send message</button>
+      <div class="flex items-center policy-agreement">
+        <div class="checkbox-area">
+          <input
+            class="checkbox"
+            type="image"
+            formControlName="privacyPolicyAgreement"
+            required=""
+            name="checkbox"
+            src="/assets/img/checkbox_empty.png"
+          />
+        </div>
+
+        <span class="privacy-policy"
+          >I've read the <a href=""> privacy policy </a> and agree to the
+          processing of my data as outlined.</span
+        >
+        <div class="error-container"></div>
+      </div>
+      <div class="submit-btn-section">
+        <button type="submit">Send message</button>
+      </div>
     </form>
   </div>
 </div>

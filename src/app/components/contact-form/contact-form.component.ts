@@ -28,6 +28,7 @@ export class ContactFormComponent {
         (control: FormControl<any>) => this.minimumLengthRequired(control, 20),
       ],
     ],
+    privacyPolicyAgreement: [''],
   });
   isSubmitted = false;
   textareaContent!: string;
